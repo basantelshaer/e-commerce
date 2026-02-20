@@ -16,7 +16,7 @@ export default function OrdersScreen() {
     }
     useEffect(() => {
         const fetchOrders = async () => {
-            const response = await getUserOrders({id: userInfo.id! })
+            const response = await getUserOrders({id: userInfo._id! })
             setorders(response)
         }
         fetchOrders()
