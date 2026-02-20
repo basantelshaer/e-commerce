@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type User = {
-  id?: string;
+  _id: string;     // ✅ بدل id
   name: string;
   email?: string;
   role: string;

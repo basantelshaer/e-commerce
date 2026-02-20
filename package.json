@@ -18,13 +18,18 @@
     "@reduxjs/toolkit": "^2.11.2",
     "@tanstack/react-query": "^5.90.20",
     "@tanstack/react-query-devtools": "^5.91.2",
+    "@types/react-image-gallery": "^1.2.4",
     "axios": "^1.13.4",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.1",
+    "react-image-gallery": "^2.0.8",
     "react-redux": "^9.2.0",
     "react-toastify": "^11.0.5",
+    "sweetalert2": "^11.26.18",
+    "sweetalert2-react-content": "^5.1.1",
+    "swiper": "^12.1.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {

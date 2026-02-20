@@ -1,7 +1,8 @@
+import HomeScreen from "@/features/home/screens/home.screen";
 export default function Home() {
   return (
     <>
-    <h2>Home</h2>
-    </>
+    <HomeScreen/>
+     </>
   );
 }

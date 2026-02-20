@@ -10,23 +10,17 @@ export async function setTokken(
 ): Promise<void> {
   const cookieStore = await cookies();
 
-  if (rememberMe) {
-    cookieStore.set("token", token, {
-      httpOnly: true,
-      maxAge: 30 * 24 * 60 * 60,
-    });
-  } else {
-    cookieStore.set("token", token, {
-      httpOnly: true,
-      maxAge: 1 * 24 * 60 * 60,
-    });
-  }
+  cookieStore.set("token", token, {
+    httpOnly: true,
+    maxAge: rememberMe
+      ? 30 * 24 * 60 * 60
+      : 1 * 24 * 60 * 60,
+  });
 }
 
 export async function getTokken(): Promise<string | null> {
   const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value || null;
-  return token;
+  return cookieStore.get("token")?.value || null;
 }
 
 export async function removeTokken(): Promise<void> {
@@ -57,12 +51,14 @@ export async function verifyTokken(): Promise<AuthState> {
     const { data } = await axios.request(options);
 
     if (data.message === "verified") {
+      const { name, id, role } = data.decoded;
+
       return {
         isAuthenticated: true,
         userInfo: {
-          name: data.decoded.name,
-          email: data.decoded.email,
-          role: data.decoded.role,
+          _id: id,   // ✅ أهم تعديل هنا
+          name,
+          role,
         },
       };
     }
